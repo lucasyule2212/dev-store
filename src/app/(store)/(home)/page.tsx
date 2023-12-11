@@ -1,7 +1,19 @@
+import api from "@/data/api";
+import type { Product } from "@/data/types/product";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HomePage() {
+async function getFeaturedProducts():Promise<Product[]> {
+  const response = await api({ path: '/products/featured' });
+  
+  const products = await response.json() as Product[];
+
+  return products;
+}
+
+export default async function HomePage() {
+  const [highlightedProduct, ...otherProducts] = await getFeaturedProducts();
+  
   return (
     <div className='grid max-h-[600px] grid-cols-9 grid-rows-6 gap-6'>
       <Link href='/' className="group relative col-span-6 row-span-6 rounded-lg bg-zinc-900 overflow-hidden flex justify-center items-end">
