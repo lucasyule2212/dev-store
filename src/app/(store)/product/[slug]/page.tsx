@@ -2,6 +2,7 @@ import AddToCartButton from '@/components/addToCartButton/addToCartButton';
 import ProductSizeButton from '@/components/productSizeButton/productSizeButton';
 import api from '@/data/api';
 import { type Product } from '@/data/types/product';
+import { type Metadata } from 'next';
 import Image from 'next/image';
 interface ProductPageProps {
   params: {
@@ -22,6 +23,16 @@ async function getProductBySlug({ slug }: { slug: string }): Promise<Product> {
   const product = (await response.json()) as Product;
 
   return product;
+}
+
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
+  const product = await getProductBySlug({ slug: params.slug });
+
+  return {
+    title: product.title,
+  };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
