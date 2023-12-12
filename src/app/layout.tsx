@@ -1,14 +1,18 @@
-import "@/styles/globals.css";
+import '@/styles/globals.css';
+import { type Metadata } from 'next';
 
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
-export const metadata = {
-  title: "DevStore",
+export const metadata: Metadata = {
+  title: {
+    template: '%s | DevStore',
+    default: 'DevStore',
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable} bg-zinc-950 text-zinc-50 antialiased`}>{children}</body>
+      <body
+        className={`font-sans ${inter.variable} bg-zinc-950 text-zinc-50 antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
