@@ -1,3 +1,5 @@
+import AddToCartButton from '@/components/addToCartButton/addToCartButton';
+import ProductSizeButton from '@/components/productSizeButton/productSizeButton';
 import Image from 'next/image';
 
 export default function ProductPage() {
@@ -31,38 +33,13 @@ export default function ProductPage() {
         <div className="mt-8 space-y-4 ">
           <span className="block font-semibold">Tamanhos</span>
           <div className="flex gap-2">
-            <button
-              type="button"
-              className="flex h-9 w-14 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800 text-sm font-semibold"
-            >
-              P
-            </button>
-            <button
-              type="button"
-              className="flex h-9 w-14 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800 text-sm font-semibold"
-            >
-              M
-            </button>
-            <button
-              type="button"
-              className="flex h-9 w-14 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800 text-sm font-semibold"
-            >
-              G
-            </button>
-            <button
-              type="button"
-              className="flex h-9 w-14 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800 text-sm font-semibold"
-            >
-              GG
-            </button>
+            <ProductSizeButton size="P" />
+            <ProductSizeButton size="M" />
+            <ProductSizeButton size="G" />
+            <ProductSizeButton size="GG" />
           </div>
         </div>
-        <button
-          type="button"
-          className="mt-8 flex h-12 items-center justify-center rounded-full bg-emerald-600 font-semibold text-white"
-        >
-          Adicionar ao carrinho
-        </button>
+        <AddToCartButton />
       </div>
     </div>
   );
