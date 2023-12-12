@@ -5,14 +5,16 @@ export default function FeaturedProduct({
   title,
   price,
   image,
+  slug,
 }: {
   title: string;
   price: number;
   image: string;
+  slug: string;
 }) {
   return (
     <Link
-      href="/"
+      href={`/product/${slug}`}
       className="group relative col-span-3 row-span-3 flex items-end justify-center overflow-hidden rounded-lg bg-zinc-900"
     >
       <Image

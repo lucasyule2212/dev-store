@@ -5,14 +5,16 @@ export default function HighlightedProduct({
   title,
   price,
   image,
+  slug,
 }: {
   title: string;
   price: number;
   image: string;
+  slug: string;
 }) {
   return (
     <Link
-      href="/"
+      href={`/product/${slug}`}
       className="group relative col-span-6 row-span-6 flex items-end justify-center overflow-hidden rounded-lg bg-zinc-900"
     >
       {/* O width e height do Image component serve apenas para dizer o quão grande queremos renderizar a imagem (qualidade) */}

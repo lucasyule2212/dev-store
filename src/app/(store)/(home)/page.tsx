@@ -27,6 +27,7 @@ export default async function HomePage() {
         title={highlightedProduct?.title ?? ''}
         image={highlightedProduct?.image ?? ''}
         price={highlightedProduct?.price ?? 0}
+        slug={highlightedProduct?.slug ?? ''}
       />
 
       {otherProducts.map((product) => (
@@ -35,6 +36,7 @@ export default async function HomePage() {
           title={product.title}
           image={product.image}
           price={product.price}
+          slug={product.slug}
         />
       ))}
     </div>
