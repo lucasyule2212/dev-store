@@ -20,6 +20,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  tailwind-merge:
+    specifier: ^2.1.0
+    version: 2.1.0
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -136,6 +139,16 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
     dev: true
+
+  /@babel/runtime@7.23.6:
+    resolution:
+      {
+        integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==,
+      }
+    engines: { node: ">=6.9.0" }
+    dependencies:
+      regenerator-runtime: 0.14.0
+    dev: false
 
   /@commitlint/cli@18.4.3(typescript@5.3.3):
     resolution:
@@ -4083,6 +4096,13 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
+  /regenerator-runtime@0.14.0:
+    resolution:
+      {
+        integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==,
+      }
+    dev: false
+
   /require-directory@2.1.1:
     resolution:
       {
@@ -4580,6 +4600,15 @@ packages:
       "@pkgr/utils": 2.4.2
       tslib: 2.6.2
     dev: true
+
+  /tailwind-merge@2.1.0:
+    resolution:
+      {
+        integrity: sha512-l11VvI4nSwW7MtLSLYT4ldidDEUwQAMWuSHk7l4zcXZDgnCRa0V3OdCwFfM7DCzakVXMNRwAeje9maFFXT71dQ==,
+      }
+    dependencies:
+      "@babel/runtime": 7.23.6
+    dev: false
 
   /tailwindcss@3.3.6:
     resolution:
