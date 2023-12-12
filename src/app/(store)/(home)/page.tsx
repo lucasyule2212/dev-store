@@ -2,6 +2,7 @@ import FeaturedProduct from '@/components/featuredProduct/featuredProduct';
 import HighlightedProduct from '@/components/highlightedProduct/highlightedProduct';
 import api from '@/data/api';
 import type { Product } from '@/data/types/product';
+import { type Metadata } from 'next';
 
 async function getFeaturedProducts(): Promise<Product[]> {
   const response = await api({
@@ -17,6 +18,10 @@ async function getFeaturedProducts(): Promise<Product[]> {
 
   return products;
 }
+
+export const metadata: Metadata = {
+  title: 'Home',
+};
 
 export default async function HomePage() {
   const [highlightedProduct, ...otherProducts] = await getFeaturedProducts();
