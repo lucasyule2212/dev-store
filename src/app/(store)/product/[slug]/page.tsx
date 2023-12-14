@@ -86,7 +86,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <ProductSizeButton size="GG" />
           </div>
         </div>
-        <AddToCartButton />
+        <AddToCartButton productId={product.id ?? ''} />
       </div>
     </div>
   );
