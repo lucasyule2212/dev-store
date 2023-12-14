@@ -1,12 +1,13 @@
 'use client';
+import { type Product } from '@/data/types/product';
 import { createContext, useContext, useState, type ReactNode } from 'react';
-interface CartItem {
-  productId: number;
+interface CartItem extends Product {
   quantity: number;
+  size: string;
 }
 interface CartContextProps {
   cartItems: CartItem[];
-  addToCart: (productId: number) => void;
+  addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   selectedSize: string;
   setSelectedSize: React.Dispatch<React.SetStateAction<string>>;
@@ -18,30 +19,35 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
-  console.log(cartItems);
 
-  function addToCart(productId: number) {
+  function addToCart(product: Product) {
     setCartItems((prev) => {
-      const existingCartItem = prev.find(
-        (item) => item.productId === productId,
+      const productAlreadyInCart = prev.find(
+        (item) => item.id === product.id && item.size === selectedSize,
       );
-      if (existingCartItem) {
-        return prev.map((item) =>
-          item.productId === productId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
+
+      if (productAlreadyInCart) {
+        return prev.map((item) => {
+          if (item.id === product.id && item.size === selectedSize) {
+            return {
+              ...item,
+              quantity: item.quantity + selectedQuantity,
+            };
+          }
+          return item;
+        });
       }
+
       return [
         ...prev,
-        { productId, quantity: selectedQuantity, size: selectedSize },
+        { ...product, quantity: selectedQuantity, size: selectedSize },
       ];
     });
   }
 
   function removeFromCart(productId: number) {
     setCartItems((prev) => {
-      return prev.filter((item) => item.productId !== productId);
+      return prev.filter((item) => item.id !== productId);
     });
   }
 
