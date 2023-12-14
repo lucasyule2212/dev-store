@@ -1,4 +1,5 @@
 import AddToCartButton from '@/components/addToCartButton/addToCartButton';
+import ProductQtdInput from '@/components/productQtdInput/productQtdInput';
 import ProductSizeButton from '@/components/productSizeButton/productSizeButton';
 import api from '@/data/api';
 import { type Product } from '@/data/types/product';
@@ -86,6 +87,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <ProductSizeButton size="GG" />
           </div>
         </div>
+        <ProductQtdInput />
         <AddToCartButton productId={product.id ?? ''} />
       </div>
     </div>
