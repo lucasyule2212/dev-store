@@ -10,11 +10,15 @@ interface CartContextProps {
   removeFromCart: (productId: number) => void;
   selectedSize: string;
   setSelectedSize: React.Dispatch<React.SetStateAction<string>>;
+  selectedQuantity: number;
+  setSelectedQuantity: React.Dispatch<React.SetStateAction<number>>;
 }
 const CartContext = createContext({} as CartContextProps);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedSize, setSelectedSize] = useState<string>('');
+  const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
+  console.log(cartItems);
 
   function addToCart(productId: number) {
     setCartItems((prev) => {
@@ -28,7 +32,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
             : item,
         );
       }
-      return [...prev, { productId, quantity: 1, size: selectedSize }];
+      return [
+        ...prev,
+        { productId, quantity: selectedQuantity, size: selectedSize },
+      ];
     });
   }
 
@@ -46,6 +53,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         removeFromCart,
         selectedSize,
         setSelectedSize,
+        selectedQuantity,
+        setSelectedQuantity,
       }}
     >
       {children}
