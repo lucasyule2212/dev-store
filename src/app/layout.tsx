@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/toaster';
 import '@/styles/globals.css';
 import { type Metadata } from 'next';
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         className={`font-sans ${inter.variable} bg-zinc-950 text-zinc-50 antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
