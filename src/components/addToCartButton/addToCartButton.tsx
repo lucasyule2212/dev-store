@@ -2,24 +2,12 @@
 
 import { useToast } from '@/components/ui/use-toast';
 import { useCart } from '@/contexts/cartContext';
-import { useMemo } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { type Product } from '@/data/types/product';
 
-export default function AddToCartButton({ productId }: { productId: number }) {
-  const { addToCart, removeFromCart, cartItems, selectedSize } = useCart();
-  const itemIsInCart = useMemo(
-    () => cartItems.some((item) => item.productId === productId),
-    [cartItems],
-  );
+export default function AddToCartButton({ product }: { product: Product }) {
+  const { addToCart, selectedSize } = useCart();
+
   const { toast } = useToast();
-
-  const buttonCollor = useMemo(
-    () =>
-      itemIsInCart
-        ? 'bg-violet-600 hover:bg-violet-700'
-        : 'bg-emerald-600 hover:bg-emerald-700',
-    [itemIsInCart],
-  );
 
   const handleAddToCart = () => {
     if (selectedSize === '') {
@@ -31,23 +19,20 @@ export default function AddToCartButton({ productId }: { productId: number }) {
       return;
     }
 
-    if (itemIsInCart) {
-      removeFromCart(productId);
-    } else {
-      addToCart(productId);
-    }
+    addToCart(product);
+    toast({
+      description: 'Produto adicionado ao carrinho',
+      duration: 5000,
+    });
   };
 
   return (
     <button
       type="button"
-      className={twMerge(
-        'mt-8 flex h-12 items-center justify-center rounded-full font-semibold text-white transition-colors',
-        buttonCollor,
-      )}
+      className="mt-8 flex h-12 items-center justify-center rounded-full bg-green-600 font-semibold text-white transition-colors hover:bg-green-700"
       onClick={() => handleAddToCart()}
     >
-      {itemIsInCart ? 'Remover do carrinho' : 'Adicionar ao carrinho'}
+      Adicionar ao carrinho
     </button>
   );
 }

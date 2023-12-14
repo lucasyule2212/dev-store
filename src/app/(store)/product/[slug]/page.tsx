@@ -88,7 +88,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
         <ProductQtdInput />
-        <AddToCartButton productId={product.id ?? ''} />
+        <AddToCartButton product={product} />
       </div>
     </div>
   );
