@@ -1,7 +1,6 @@
 import api from '@/data/api';
 import { type Product } from '@/data/types/product';
 import { env } from '@/env';
-import Image from 'next/image';
 import { ImageResponse } from 'next/og';
 import colors from 'tailwindcss/colors';
 
