@@ -39,6 +39,7 @@ const config = {
         checksVoidReturn: { attributes: false },
       },
     ],
+    "@typescript-eslint/no-namespace": "off",
   },
 };
 
