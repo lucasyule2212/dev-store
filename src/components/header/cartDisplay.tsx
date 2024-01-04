@@ -20,7 +20,7 @@ export default function CartDisplay() {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger>
+        <TooltipTrigger data-testid="add-to-cart-button">
           <div className="flex items-center gap-2">
             <ShoppingBag className="h-4 w-4" />
             <span className="text-sm">Cart: ({cartItems.length})</span>

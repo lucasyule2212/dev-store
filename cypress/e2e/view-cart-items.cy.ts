@@ -1,14 +1,19 @@
 describe('Viewing cart items', () => {
   it('should display cart items after adding products and hovering the cart', () => {
-    // Add products to the cart
-    cy.visit('/products');
-    cy.get('.product').first().click();
-    cy.get('.add-to-cart-button').click();
+    cy.searchByQuery('moletom');
 
-    // Hover over the cart
-    cy.get('.cart-icon').trigger('mouseover');
+    cy.get('a[href^="/product"]').first().click();
 
-    // Verify that cart items are displayed
-    cy.get('.cart-items').should('be.visible');
+    cy.location('pathname').should('include', '/product');
+
+    cy.get('button').contains('P').click();
+
+    cy.contains('Adicionar ao carrinho').click();
+
+    cy.get('[data-testid="add-to-cart-button"] > .flex').realHover();
+
+    cy.get('.z-50').should('be.visible');
+
+    cy.contains('1x').should('exist');
   });
 });
