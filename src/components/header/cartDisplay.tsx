@@ -1,6 +1,7 @@
 'use client';
 import { useCart } from '@/contexts/cartContext';
 import { ShoppingBag } from 'lucide-react';
+import Link from 'next/link';
 import {
   Tooltip,
   TooltipContent,
@@ -21,10 +22,10 @@ export default function CartDisplay() {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger data-testid="add-to-cart-button">
-          <div className="flex items-center gap-2">
+          <Link href="/cart" className="flex items-center gap-2">
             <ShoppingBag className="h-4 w-4" />
             <span className="text-sm">Cart: ({cartItems.length})</span>
-          </div>
+          </Link>
         </TooltipTrigger>
         <TooltipContent>
           <div className="flex flex-col gap-2">
