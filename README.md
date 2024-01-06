@@ -41,6 +41,7 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 - Usage of new API route handlers (at _dev-store-api_ project)
 - E2E testing with Cypress
     - Including CI Workflow with Cypress
+- Authentication by Clerk
 
 
 ## Learnings...
@@ -54,7 +55,7 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 
 ## Roadmap
 
-- [ ] Add Clerk authentication
+- [x] Add Clerk authentication
 - [ ] Add Cart page
 - [ ] Add Stripe integration with checkout page
 - [ ] Expand E2E tests with Cypress
