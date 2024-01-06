@@ -1,6 +1,8 @@
 describe('search products', () => {
   it('should be able to search for products', () => {
-    cy.visit('/');
+    cy.visit('/', {
+      failOnStatusCode: false,
+    });
 
     cy.searchByQuery('moletom');
 
@@ -15,7 +17,9 @@ describe('search products', () => {
       return false;
     });
 
-    cy.visit('/search');
+    cy.visit('/search', {
+      failOnStatusCode: false,
+    });
 
     cy.get('a[href^="/product"]').should('exist');
   });

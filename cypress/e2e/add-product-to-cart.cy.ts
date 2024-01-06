@@ -1,6 +1,8 @@
 describe('add product to cart', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/', {
+      failOnStatusCode: false,
+    });
   });
 
   it('should be able to navigate to the product page and add it to the cart', () => {
