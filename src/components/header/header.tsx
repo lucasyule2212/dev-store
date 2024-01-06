@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import SearchForm from '../searchForm/searchForm';
@@ -19,16 +19,12 @@ export default function Header() {
       <div className="flex items-center gap-4">
         <CartDisplay />
         <div className="h-4 w-px bg-zinc-700" />
-        <Link href="/" className="flex items-center gap-2 hover:underline">
-          <span className="text-sm">Account</span>
-          <Image
-            src="https://github.com/lucasyule2212.png"
-            alt=""
-            className="h-6 w-6 rounded-full"
-            width={24}
-            height={24}
-          />
-        </Link>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
       </div>
     </div>
   );
