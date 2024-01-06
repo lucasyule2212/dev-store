@@ -3,6 +3,7 @@
 import { useCart } from '@/contexts/cartContext';
 import { ShoppingBag } from 'lucide-react';
 import { useMemo } from 'react';
+import { Button } from '../ui/button';
 
 export default function CheckoutProceed() {
   const { cartItems } = useCart();
@@ -25,8 +26,8 @@ export default function CheckoutProceed() {
           maximumFractionDigits: 2,
         })}
       </h1>
-      <div>
-        {hasItems && (
+      {hasItems && (
+        <div>
           <p className=" flex items-center gap-2 font-semibold text-zinc-300">
             12x of{' '}
             <span className="font-semibold text-violet-500">
@@ -38,15 +39,17 @@ export default function CheckoutProceed() {
             </span>{' '}
             without interest
           </p>
-        )}
-
-        <p className="text-xs text-violet-500">
-          Shipping calculated at checkout
-        </p>
-      </div>
-      <button className="mt-6 flex justify-center gap-2 rounded-md bg-violet-500 p-2 font-semibold text-zinc-50 hover:bg-violet-600">
+          <p className="text-xs text-violet-500">
+            Shipping calculated at checkout
+          </p>
+        </div>
+      )}
+      <Button
+        disabled={!hasItems}
+        className="mt-6 flex justify-center gap-2 rounded-md bg-violet-500 p-2 font-semibold text-zinc-50 hover:bg-violet-600"
+      >
         <ShoppingBag /> Proceed to Checkout
-      </button>
+      </Button>
     </div>
   );
 }
