@@ -17,7 +17,7 @@ export default function CheckoutProceed() {
   }, [cartItems]);
 
   return (
-    <div className="flex flex-col gap-6 rounded-md bg-zinc-900 p-4">
+    <div className="flex max-h-[300px] flex-col gap-6 rounded-md bg-zinc-900 p-4">
       <p className="text-2xl font-extrabold">Subtotal:</p>
       <h1 className="text-5xl font-semibold tabular-nums">
         {cartItemsSubtotal.toLocaleString('en-US', {
@@ -46,7 +46,7 @@ export default function CheckoutProceed() {
       )}
       <Button
         disabled={!hasItems}
-        className="mt-6 flex justify-center gap-2 rounded-md bg-violet-500 p-2 font-semibold text-zinc-50 hover:bg-violet-600"
+        className="mt-6 flex justify-center gap-2 justify-self-end rounded-md bg-violet-500 p-2 font-semibold text-zinc-50 hover:bg-violet-600"
       >
         <ShoppingBag /> Proceed to Checkout
       </Button>
