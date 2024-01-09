@@ -17,6 +17,9 @@ dependencies:
   "@radix-ui/react-tooltip":
     specifier: ^1.0.7
     version: 1.0.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
+  "@stripe/stripe-js":
+    specifier: ^2.2.2
+    version: 2.2.2
   "@t3-oss/env-nextjs":
     specifier: ^0.7.1
     version: 0.7.1(typescript@5.3.3)(zod@3.22.4)
@@ -41,6 +44,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  stripe:
+    specifier: ^14.11.0
+    version: 14.11.0
   tailwind-merge:
     specifier: ^2.1.0
     version: 2.1.0
@@ -1372,6 +1378,13 @@ packages:
       }
     dependencies:
       "@babel/runtime": 7.23.6
+    dev: false
+
+  /@stripe/stripe-js@2.2.2:
+    resolution:
+      {
+        integrity: sha512-LvFZRZEBoMe6vXC6RoOAIbXWo/0JDdndq43ekL9M6affcM7PtF5KALmwt91BazW7q49sbSl0l7TunWhhSwEW4w==,
+      }
     dev: false
 
   /@swc/helpers@0.5.2:
@@ -5602,6 +5615,16 @@ packages:
     dependencies:
       side-channel: 1.0.4
 
+  /qs@6.11.2:
+    resolution:
+      {
+        integrity: sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==,
+      }
+    engines: { node: ">=0.6" }
+    dependencies:
+      side-channel: 1.0.4
+    dev: false
+
   /querystringify@2.2.0:
     resolution:
       {
@@ -6230,6 +6253,17 @@ packages:
       }
     engines: { node: ">=8" }
     dev: true
+
+  /stripe@14.11.0:
+    resolution:
+      {
+        integrity: sha512-NmFEkDC0PldP7CQtdPgKs5dVZA/pF+IepldbmB+Kk9B4d7EBkWnbANp0y+/zJcbRGul48s8hmQzeqNWUlWW0wg==,
+      }
+    engines: { node: ">=12.*" }
+    dependencies:
+      "@types/node": 18.19.2
+      qs: 6.11.2
+    dev: false
 
   /styled-jsx@5.1.1(react@18.2.0):
     resolution:
