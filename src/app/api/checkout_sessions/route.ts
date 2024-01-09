@@ -5,7 +5,10 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const headersList = headers();
-  const cartDetails = (await req.json()) as CartItem[];
+  const { cartDetails, customerEmail } = (await req.json()) as {
+    cartDetails: CartItem[];
+    customerEmail: string;
+  };
 
   const lineItems = cartDetails.map((item: CartItem) => {
     return {
@@ -14,7 +17,7 @@ export async function POST(req: NextRequest) {
         product_data: {
           name: item.title,
         },
-        unit_amount: item.price,
+        unit_amount: item.price * 100,
       },
       quantity: item.quantity,
     };
@@ -23,6 +26,11 @@ export async function POST(req: NextRequest) {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      customer_email: customerEmail,
+      billing_address_collection: 'auto',
+      shipping_address_collection: {
+        allowed_countries: ['US', 'BR'],
+      },
       line_items: lineItems,
       mode: 'payment',
       success_url: `${headersList.get('origin')}/`,
