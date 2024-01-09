@@ -57,7 +57,7 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 
 - [x] Add Clerk authentication
 - [x] Add Cart page
-- [ ] Add Stripe integration with checkout page
+- [x] Add Stripe integration with checkout page
 - [ ] Expand E2E tests with Cypress
 - [ ] Add Unit tests with Vitest
 
@@ -66,5 +66,9 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 ![searchpage](https://cdn.discordapp.com/attachments/1075238095429046282/1192476975248449599/image.png?ex=65a937ba&is=6596c2ba&hm=89fd4e2d7ccef1efe6d4b183e7eb6444308bcf32ee684f2a88030af8b7d54298&)
 ![productpage](https://cdn.discordapp.com/attachments/1075238095429046282/1192476975655305306/image.png?ex=65a937ba&is=6596c2ba&hm=77e654785bb7f306cf5f0bf0a3ff343d43a3dbeac0875bd17b95acfd67658005&)
 ![cartdisplay](https://cdn.discordapp.com/attachments/1075238095429046282/1192477067250511974/image.png?ex=65a937cf&is=6596c2cf&hm=4a808e50d4cfa85241249ac20bf9b88b6ee71e335131801fd298b6f9f25736d3&)
+![cartlist](https://github.com/lucasyule2212/dev-store/assets/55456226/5e7826fd-b681-4162-acb4-92c9e1b558ea)
+![clerkuser](https://github.com/lucasyule2212/dev-store/assets/55456226/229c1a8b-5e3d-4a21-954c-3789c8c6d548)
+![clerkusermanagement](https://github.com/lucasyule2212/dev-store/assets/55456226/cac3f638-dded-47a0-9bd7-77d7b2f2093f)
+![stripecheckout](https://github.com/lucasyule2212/dev-store/assets/55456226/fef30a9a-b48d-4be9-8680-7986060f6dd4)
 
 
