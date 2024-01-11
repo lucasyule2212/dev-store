@@ -13,6 +13,7 @@ interface CartContextProps {
   setSelectedSize: React.Dispatch<React.SetStateAction<string>>;
   selectedQuantity: number;
   setSelectedQuantity: React.Dispatch<React.SetStateAction<number>>;
+  clearCart: () => void;
 }
 const CartContext = createContext({} as CartContextProps);
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -51,6 +52,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }
 
+  function clearCart() {
+    setCartItems([]);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -61,6 +66,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setSelectedSize,
         selectedQuantity,
         setSelectedQuantity,
+        clearCart,
       }}
     >
       {children}
