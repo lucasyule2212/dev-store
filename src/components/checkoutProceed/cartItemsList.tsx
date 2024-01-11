@@ -4,6 +4,7 @@ import { useCart, type CartItem } from '@/contexts/cartContext';
 import { Trash, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ConfirmationModal from '../confirmationModal/confirmationModal';
 import { Button } from '../ui/button';
 
 function CartItem({ item }: { item: CartItem }) {
@@ -49,13 +50,20 @@ export default function CartItemsList() {
     <div className="col-span-2 flex flex-col gap-6 rounded-md bg-zinc-900 p-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-extrabold">Your Cart</h1>
-        <Button
-          className="hover:bg-violet-7 flex w-fit gap-2 bg-violet-500 text-lg font-semibold shadow-md"
-          onClick={() => clearCart()}
-          disabled={cartItems.length === 0}
+        <ConfirmationModal
+          title="Clear your current cart"
+          description="Are you sure you want to clear your current cart?"
+          toastConfirmMessage="Your cart has been cleared!"
+          confirmButtonText="Clear"
+          onConfirm={() => clearCart()}
         >
-          Clear <X />
-        </Button>
+          <Button
+            className="hover:bg-violet-7 flex w-fit gap-2 bg-violet-500 text-lg font-semibold shadow-md"
+            disabled={cartItems.length === 0}
+          >
+            Clear <X />
+          </Button>
+        </ConfirmationModal>
       </div>
       <div className="flex flex-col gap-2">
         {cartItems.map((item) => (
