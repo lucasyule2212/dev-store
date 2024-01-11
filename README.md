@@ -29,6 +29,10 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 
 **Others:** Zod, Husky, Commitizen, Commitlint, Lint-staged.
 
+**Auth Manager**: Clerk
+
+**Payment Simulation**: Stripe
+
 **E2E tests:** Cypress
 
 
@@ -42,12 +46,13 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 - E2E testing with Cypress
     - Including CI Workflow with Cypress
 - Authentication by Clerk
+- Payment simulation with Stripe
 
 
 ## Learnings...
 
 - Core Next 13 with App folder new features
-- Server Components
+- React Server Components
 - Client Boundaries
 - React Suspense
 - E2E tests with Cypress
