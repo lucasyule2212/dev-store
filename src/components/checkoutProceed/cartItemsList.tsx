@@ -52,6 +52,7 @@ export default function CartItemsList() {
         <Button
           className="hover:bg-violet-7 flex w-fit gap-2 bg-violet-600 text-lg font-semibold shadow-md"
           onClick={() => clearCart()}
+          disabled={cartItems.length === 0}
         >
           Clear <X />
         </Button>
