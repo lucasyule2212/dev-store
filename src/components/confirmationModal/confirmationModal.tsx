@@ -19,6 +19,7 @@ interface ConfirmationModalProps {
   confirmButtonText?: string;
   cancelButtonText?: string;
   onConfirm: () => void;
+  children: React.ReactNode;
 }
 
 export default function ConfirmationModal({
@@ -28,6 +29,7 @@ export default function ConfirmationModal({
   confirmButtonText = 'Confirm',
   cancelButtonText = 'Cancel',
   onConfirm,
+  children,
 }: ConfirmationModalProps) {
   const { toast } = useToast();
 
@@ -41,9 +43,7 @@ export default function ConfirmationModal({
 
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button variant="destructive">Delete</Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="ring-none border-none bg-zinc-900 sm:max-w-md">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
