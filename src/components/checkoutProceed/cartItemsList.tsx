@@ -50,7 +50,7 @@ export default function CartItemsList() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-extrabold">Your Cart</h1>
         <Button
-          className="hover:bg-violet-7 flex w-fit gap-2 bg-violet-600 text-lg font-semibold shadow-md"
+          className="hover:bg-violet-7 flex w-fit gap-2 bg-violet-500 text-lg font-semibold shadow-md"
           onClick={() => clearCart()}
           disabled={cartItems.length === 0}
         >
