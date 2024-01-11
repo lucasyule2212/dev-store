@@ -11,23 +11,31 @@ function CartItem({ item }: { item: CartItem }) {
   const { removeFromCart } = useCart();
 
   return (
-    <Link
-      href={`/product/${item.slug}`}
-      className="group flex items-center justify-between rounded-md p-4 transition-colors hover:bg-zinc-800"
-    >
+    <div className="group flex items-center justify-between rounded-md p-4 transition-colors hover:bg-zinc-800">
       <div className="flex items-center gap-3">
         <Image src={item.image} alt="" width={150} height={150} />
         <div className="mt-14 flex flex-col gap-4">
-          <span className="text-xl font-bold">
-            {item.title} (<strong>{item.size}</strong>)
-          </span>
-          <Button
-            className="absolut right-10 top-10 flex w-fit gap-2 text-sm font-semibold shadow-md ring-1 ring-zinc-800 hover:bg-zinc-900 group-hover:bg-zinc-800 group-hover:ring-zinc-700"
-            size="sm"
-            onClick={() => removeFromCart(item.id)}
+          <Link
+            href={`/product/${item.slug}`}
+            className="text-xl font-bold hover:underline"
           >
-            Remove <Trash width={18} height={18} />
-          </Button>
+            {item.title} (<strong>{item.size}</strong>)
+          </Link>
+          <ConfirmationModal
+            title="Remove this item from your cart"
+            description={`Are you sure you want to remove ${item.title} from your cart?`}
+            toastConfirmMessage="Item removed from your cart!"
+            confirmButtonText="Remove"
+            onConfirm={() => removeFromCart(item.id)}
+          >
+            <Button
+              className="absolut right-10 top-10 flex w-fit gap-2 text-sm font-semibold shadow-md ring-1 ring-zinc-800 hover:bg-zinc-900 group-hover:bg-zinc-800 group-hover:ring-zinc-700"
+              size="sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Remove <Trash width={18} height={18} />
+            </Button>
+          </ConfirmationModal>
         </div>
         <span className="text-3xl font-extrabold text-violet-500">
           {item.quantity}x
@@ -40,7 +48,7 @@ function CartItem({ item }: { item: CartItem }) {
           maximumFractionDigits: 2,
         })}
       </h1>
-    </Link>
+    </div>
   );
 }
 
