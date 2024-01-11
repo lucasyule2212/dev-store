@@ -1,7 +1,7 @@
 'use client';
 
 import { useCart, type CartItem } from '@/contexts/cartContext';
-import { Trash } from 'lucide-react';
+import { Trash, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
@@ -44,10 +44,18 @@ function CartItem({ item }: { item: CartItem }) {
 }
 
 export default function CartItemsList() {
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
   return (
     <div className="col-span-2 flex flex-col gap-6 rounded-md bg-zinc-900 p-4">
-      <h1 className="text-2xl font-extrabold">Your Cart</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-extrabold">Your Cart</h1>
+        <Button
+          className="hover:bg-violet-7 flex w-fit gap-2 bg-violet-600 text-lg font-semibold shadow-md"
+          onClick={() => clearCart()}
+        >
+          Clear <X />
+        </Button>
+      </div>
       <div className="flex flex-col gap-2">
         {cartItems.map((item) => (
           <CartItem key={item.slug} item={item} />
