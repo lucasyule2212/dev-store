@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       },
       line_items: lineItems,
       mode: 'payment',
-      success_url: `${headersList.get('origin')}/`,
+      success_url: `${headersList.get('origin')}/success?checkout=true`,
       cancel_url: `${headersList.get('origin')}/`,
     });
 
