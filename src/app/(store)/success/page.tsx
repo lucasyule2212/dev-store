@@ -1,8 +1,20 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function SuccessPage() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (searchParams.get('checkout') !== 'true') {
+      router.push('/');
+    }
+  }, []);
+
   return (
     <div className="flex h-[80vh] w-full flex-col items-center justify-center gap-4 rounded-lg ring-1 ring-zinc-900">
       <h1 className="text-4xl font-bold">Success ✨</h1>
