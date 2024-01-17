@@ -75,5 +75,9 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 ![clerkuser](https://github.com/lucasyule2212/dev-store/assets/55456226/229c1a8b-5e3d-4a21-954c-3789c8c6d548)
 ![clerkusermanagement](https://github.com/lucasyule2212/dev-store/assets/55456226/cac3f638-dded-47a0-9bd7-77d7b2f2093f)
 ![stripecheckout](https://github.com/lucasyule2212/dev-store/assets/55456226/fef30a9a-b48d-4be9-8680-7986060f6dd4)
+![cartResume](https://github.com/lucasyule2212/dev-store/assets/55456226/1e4a619b-99c8-4205-9f96-38923e36d33e)
+![successCheckout](https://github.com/lucasyule2212/dev-store/assets/55456226/cbbfbcaf-5a21-4c3f-89d3-2d105e837c91)
+
+
 
 
