@@ -1,4 +1,10 @@
 describe('search products', () => {
+  beforeEach(() => {
+    cy.session('signed-in', () => {
+      cy.signIn();
+    });
+  });
+
   it('should be able to search for products', () => {
     cy.visit('/', {
       failOnStatusCode: false,

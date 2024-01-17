@@ -1,11 +1,15 @@
 describe('add product to cart', () => {
   beforeEach(() => {
-    cy.visit('/', {
-      failOnStatusCode: false,
+    cy.session('signed-in', () => {
+      cy.signIn();
     });
   });
 
   it('should be able to navigate to the product page and add it to the cart', () => {
+    cy.visit('/', {
+      failOnStatusCode: false,
+    });
+
     cy.get('a[href^="/product"]').first().click();
 
     cy.location('pathname').should('include', '/product');
@@ -19,6 +23,9 @@ describe('add product to cart', () => {
   });
 
   it('should not count duplicated products on cart', () => {
+    cy.visit('/', {
+      failOnStatusCode: false,
+    });
     cy.get('a[href^="/product"]').first().click();
 
     cy.location('pathname').should('include', '/product');
