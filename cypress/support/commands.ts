@@ -9,6 +9,7 @@ declare global {
     interface Chainable {
       searchByQuery(query: string): Chainable<void>;
       signIn(): Chainable<void>;
+      addProductToCartAndFollow(): Chainable<void>;
     }
   }
 }
@@ -63,6 +64,23 @@ Cypress.Commands.add(`signIn`, () => {
       });
     });
 });
+
+Cypress.Commands.add('addProductToCartAndFollow', () => {
+  cy.searchByQuery('moletom');
+
+  cy.get('a[href^="/product"]').first().click();
+
+  cy.location('pathname').should('include', '/product');
+
+  cy.get('button').contains('P').click();
+
+  cy.contains('Adicionar ao carrinho').click();
+
+  cy.contains('Cart: (1)').should('exist');
+
+  cy.get('a[href^="/cart"]').click();
+});
+
 //
 //
 // -- This is a child command --
