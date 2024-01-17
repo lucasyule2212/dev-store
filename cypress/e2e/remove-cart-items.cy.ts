@@ -18,4 +18,18 @@ describe('remove cart items', () => {
 
     cy.contains('Cart: (0)').should('exist');
   });
+
+  it('should be able to remove all items from cart', () => {
+    cy.addProductToCartAndFollow();
+
+    cy.contains('Clear').should('exist');
+
+    cy.get('button').contains('Clear').click();
+
+    cy.contains('Clear your current cart').should('exist');
+
+    cy.get('[role="dialog"] button').contains('Clear').click();
+
+    cy.contains('Cart: (0)').should('exist');
+  });
 });
