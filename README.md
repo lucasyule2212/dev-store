@@ -64,7 +64,6 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 - [x] Add Cart page
 - [x] Add Stripe integration with checkout page
 - [x] Expand E2E tests with Cypress
-- [ ] Add Unit tests with Vitest
 
 ## Screenshots
 ![homepage](https://cdn.discordapp.com/attachments/1075238095429046282/1192476788580945990/image.png?ex=65a9378d&is=6596c28d&hm=b9a5929c67af55c1bd7d4a7bcd3b75a47105b89e658e58609966c1d89a13e7a8&)
