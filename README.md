@@ -63,7 +63,7 @@ Project of an modern e-commerce using Next 13 features with payment simulation u
 - [x] Add Clerk authentication
 - [x] Add Cart page
 - [x] Add Stripe integration with checkout page
-- [ ] Expand E2E tests with Cypress
+- [x] Expand E2E tests with Cypress
 - [ ] Add Unit tests with Vitest
 
 ## Screenshots
