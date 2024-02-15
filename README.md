@@ -5,7 +5,7 @@
 
 # DevStore
 
-Project of an modern e-commerce using Next 13 features with payment simulation using Stripe.
+Project of a modern e-commerce using Next 13 features with payment simulation using Stripe.
 
 
 ## Author
