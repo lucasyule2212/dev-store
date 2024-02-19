@@ -11,6 +11,8 @@ interface ProductPageProps {
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 async function getProductBySlug({ slug }: { slug: string }): Promise<Product> {
   const response = await api({
     path: `/products/${slug}`,
